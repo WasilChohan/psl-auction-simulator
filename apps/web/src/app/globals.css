@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: linear-gradient(135deg, #1A0033 0%, #2D0052 50%, #1A0033 100%);
+  background-attachment: fixed;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* PSL Theme - Purple & Gold */
+:root {
+  --psl-gold: #FFD700;
+  --psl-purple: #6B2C91;
+  --psl-dark: #1A0033;
+}

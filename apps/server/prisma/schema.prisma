@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Player {
+  id         String  @id @default(cuid())
+  name       String
+  category   String  // Platinum, Diamond, Gold, Silver
+  role       String  // Batter, Bowler, All Rounder, Wicketkeeper
+  basePrice  Float
+  country    String
+  strikeRate Float?
+  economy    Float?
+  average    Float?
+  createdAt  DateTime @default(now())
+}
+
+model Squad {
+  id         String  @id @default(cuid())
+  roomId     String
+  teamId     Int
+  playerId   String
+  boughtPrice Float
+  createdAt  DateTime @default(now())
+}
+
+model Bid {
+  id         String  @id @default(cuid())
+  roomId     String
+  playerId   String
+  teamId     Int
+  amount     Float
+  timestamp  DateTime @default(now())
+}
+
+model Room {
+  id           String   @id @default(cuid())
+  name         String
+  isPublic     Boolean  @default(true)
+  privateCode  String?  @unique
+  hostName     String
+  status       String   @default("PRE")
+  bidTimerSec  Int      @default(10)
+  pursePerTeam Float    @default(150) // required for your config
+  squadLimit   Int      @default(15)  // required for your config
+  createdAt    DateTime @default(now())
+}

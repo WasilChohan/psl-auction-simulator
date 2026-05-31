@@ -1,0 +1,12 @@
+{
+  "name": "mock-psl-auction",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/server\" \"npm run dev -w apps/web\"",
+    "build": "npm run build -w apps/server && npm run build -w apps/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
